@@ -1,8 +1,8 @@
 library(data.table)
 
 mes <- "201710"
-carpeta         <- "~/Dropbox/MOOCs/R/P48/"
-carpetaRObjects <- "~/Dropbox/MOOCs/R/P48/RObjects/"
+carpeta         <- "~/path/P48/"
+carpetaRObjects <- "~/path/P48/RObjects/"
 
 dt <- 
   data.table(v1 = rnorm(n = 100, mean = 0, sd = 0),
@@ -17,7 +17,7 @@ save(list = ls(pattern = mes), # O en vez de mes poner p48Final
 rm(list = ls())
 
 objetos <- 
-  list.files(path = "~/Dropbox/MOOCs/R/P48/RObjects", 
+  list.files(path = carpetaRObjects, 
              full.names = T, 
              recursive = T,
              pattern = "\\.RData")
