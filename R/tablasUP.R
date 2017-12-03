@@ -3,7 +3,7 @@
 library(data.table)
 library(tidyverse)
 
-carpetaSujetos <- "D:/NEXUSDATA_SHARED/PROYECTOS/P48/SUJETOS/"
+carpetaSujetos <- "~/Dropbox/MOOCs/R/P48/SUJETOS/"
 
 uFisicas <- list.files(path = carpetaSujetos, pattern = "export_unidades-fisicas")
 sujMercado <- list.files(path = carpetaSujetos, pattern = "export_sujetos-del-mercado")
@@ -26,5 +26,9 @@ tablaUP <- left_join(x = sujetos$uProg,
                 by = "Sujeto del Mercado")
 
 colnames(tablaUP)[grep(pattern = "Código de UP", x = colnames(tablaUP))] <- "CodUP"
+
+setDT(tablaUP)
+
+setkey(x = tablaUP, CodUP)
 
 rm(list = c("carpetaSujetos", "uFisicas", "sujMercado", "uProg"))
